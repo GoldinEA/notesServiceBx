@@ -2,8 +2,9 @@
 
 
 require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/header.php');
+global $USER;
 if (!$USER->IsAuthorized()) {
-    $USER->Authorize(1);
+    LocalRedirect('/');
 }
 
 /** @var CMain $APPLICATION */
