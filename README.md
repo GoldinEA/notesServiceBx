@@ -31,6 +31,12 @@ docker compose -p bitrixdock --profile workspace up -d
 - Найдите модуль сервиса заметок
 - Нажмите **Установить**
 
+### Шаг 3: Установка Swagger
+- в папке /local/ выполните
+```bash
+php composer.phar install
+```
+
 
 После успешной установки будут доступны:
 
