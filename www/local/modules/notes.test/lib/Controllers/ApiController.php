@@ -12,7 +12,7 @@ use Notes\Test\Services\NoteService;
 use OpenApi\Attributes as OA;
 
 
-#[OA\Info(title: 'Notes API', version: '1.0.0', description: 'API для заметок')]
+#[OA\Info(version: '1.0.0', description: 'API для заметок', title: 'Notes API')]
 class ApiController extends Controller
 {
 
@@ -82,10 +82,9 @@ class ApiController extends Controller
     }
 
     #[OA\Post(
-        path: '/api/v1/notes',
+        path: '/api/v1/notes/add',
         operationId: 'createNote',
         summary: 'Создать новую заметку',
-        tags: ['notes'],
         requestBody: new OA\RequestBody(
             required: true,
             content: new OA\JsonContent(
@@ -96,6 +95,7 @@ class ApiController extends Controller
                 type: 'object',
             ),
         ),
+        tags: ['notes'],
         responses: [
             new OA\Response(
                 response: 200,
@@ -131,7 +131,7 @@ class ApiController extends Controller
 
 
     #[OA\Get(
-        path: '/api/v1/notes',
+        path: '/api/v1/notes/list',
         operationId: 'getNotesList',
         summary: 'Получить список заметок',
         tags: ['notes'],
@@ -188,7 +188,7 @@ class ApiController extends Controller
 
 
     #[OA\Get(
-        path: '/api/v1/notes',
+        path: '/api/v1/notes/get',
         operationId: 'getNoteById',
         summary: 'Получить заметку по ID',
         tags: ['notes'],
@@ -249,10 +249,9 @@ class ApiController extends Controller
 
 
     #[OA\Patch(
-        path: '/api/v1/notes',
+        path: '/api/v1/notes/update',
         operationId: 'updateNote',
         summary: 'Обновить заметку',
-        tags: ['notes'],
         requestBody: new OA\RequestBody(
             required: true,
             content: new OA\JsonContent(
@@ -264,6 +263,7 @@ class ApiController extends Controller
                 type: 'object',
             ),
         ),
+        tags: ['notes'],
         responses: [
             new OA\Response(
                 response: 200,
@@ -304,7 +304,7 @@ class ApiController extends Controller
 
 
     #[OA\Delete(
-        path: '/api/v1/notes',
+        path: '/api/v1/notes/delete',
         operationId: 'deleteNote',
         summary: 'Удалить заметку',
         tags: ['notes'],
